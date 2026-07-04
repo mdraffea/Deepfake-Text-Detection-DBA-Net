@@ -19,3 +19,15 @@ __pycache__/
 
 # VS Code
 .vscode/
+
+# Dataset
+dataset/*.csv
+
+# Trained models
+model/*.pt
+model/*.npy
+model/*.pkl
+
+# Python cache
+__pycache__/
+*.pyc

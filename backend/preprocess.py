@@ -9,8 +9,55 @@ from gensim.models import FastText
 
 from sklearn.model_selection import train_test_split
 
-from config import *
+from .config import *
+# =====================================
+# CLEAN TEXT
+# =====================================
 
+def clean_text(text):
+    """
+    Clean raw text before tokenization.
+    """
+
+    text = str(text).lower()
+
+    # Remove URLs
+    text = re.sub(r"http\\S+|www\\S+", " ", text)
+
+    # Keep only letters, numbers and apostrophes
+    text = re.sub(r"[^a-z0-9\\s']", " ", text)
+
+    # Remove extra spaces
+    text = re.sub(r"\\s+", " ", text)
+
+    return text.strip()
+# =====================================
+# TOKENIZE
+# =====================================
+
+def tokenize(text):
+    return clean_text(text).split()
+
+# =====================================
+# BUILD VOCABULARY
+# =====================================
+
+def build_vocab(token_lists):
+
+    counter = Counter()
+
+    for tokens in token_lists:
+        counter.update(tokens)
+
+    word2idx = {
+        "<PAD>": 0,
+        "<UNK>": 1
+    }
+
+    for word, _ in counter.most_common(VOCAB_SIZE - 2):
+        word2idx[word] = len(word2idx)
+
+    return word2idx
 # =====================================
 # LOAD DATASET
 # =====================================

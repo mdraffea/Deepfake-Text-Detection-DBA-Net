@@ -21,7 +21,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from backend.config import (
+from .config import (
     EMBEDDING_DIM,
     CNN_FILTERS,
     KERNEL_SIZES,
@@ -96,10 +96,10 @@ class DBANet(nn.Module):
         # ==========================================
 
         self.attention = nn.MultiheadAttention(
-            embed_dim=LSTM_HIDDEN * 2,
-            num_heads=ATTENTION_HEADS,
-            batch_first=True
-        )
+    embed_dim=LSTM_HIDDEN * 2,
+    num_heads=NUM_HEADS,
+    batch_first=True
+)
 
         # ==========================================
         # Feature Dimensions
