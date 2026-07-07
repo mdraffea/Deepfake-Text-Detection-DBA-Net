@@ -1,84 +1,261 @@
-# 🧠 Deepfake Text Detection using DBA-Net
+# 🧠 DBA-Net: Deepfake Text Detection System
 
-A deep learning-based web application for detecting AI-generated (deepfake) text using a novel **Dual Branch Attention Network (DBA-Net)**.
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.x-red)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-UI-38BDF8)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-## 🚀 Project Overview
+A full-stack AI-powered Deepfake Text Detection system that identifies whether a piece of text is Human-written or AI-generated using a custom deep learning architecture called **DBA-Net**.
 
-This project detects whether a piece of text is **Human Written** or **AI Generated** using a custom deep learning architecture.
+---
 
-The model combines:
+# 🌐 Live Demo
+
+### Frontend
+
+https://deepfake-text-detection-dba-net.netlify.app
+
+### Backend API
+
+https://deepfake-text-detection-dba-net.onrender.com
+
+### API Documentation
+
+https://deepfake-text-detection-dba-net.onrender.com/docs
+
+---
+
+# 📖 Overview
+
+The rapid growth of Large Language Models has made AI-generated content nearly indistinguishable from human-written text. This project introduces **DBA-Net**, a hybrid deep learning architecture that combines:
 
 - FastText Embeddings
 - Multi-scale CNN
-- BiLSTM
-- Multi-Head Self Attention
-- Gated Fusion
-- Binary Classification
+- Bidirectional LSTM
+- Multi-Head Attention
 
-## 📊 Current Performance
+to accurately detect AI-generated text.
 
-| Metric | Value |
-|--------|--------|
-| Accuracy | **92.68%** |
-| Precision | **93.48%** |
-| Recall | **91.76%** |
-| F1-Score | **92.61%** |
+The application includes:
 
-## 🛠️ Tech Stack
+- Modern React Frontend
+- FastAPI Backend
+- PyTorch Deep Learning Model
+- REST API
+- Live Deployment
 
-### AI
+---
+
+# ✨ Features
+
+- Detect AI-generated text
+- Detect Human-written text
+- Confidence Score
+- Real-time Prediction
+- Responsive UI
+- FastAPI REST API
+- PyTorch Inference
+- Live Deployment
+
+---
+
+# 🏗 Model Architecture
+
+```
+Input Text
+      │
+      ▼
+Text Cleaning
+      │
+      ▼
+FastText Embeddings
+      │
+      ▼
+Multi-scale CNN
+      │
+      ▼
+BiLSTM
+      │
+      ▼
+Multi-Head Attention
+      │
+      ▼
+Dense Layer
+      │
+      ▼
+Sigmoid Output
+      │
+      ▼
+Human / AI
+```
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- React
+- Vite
+- Tailwind CSS
+- Axios
+- Lucide React
+
+## Backend
+
+- FastAPI
+- Uvicorn
+
+## Machine Learning
+
 - PyTorch
 - FastText
-- NumPy
-- Scikit-learn
+- CNN
+- BiLSTM
+- Multi-Head Attention
 
-### Backend
-- FastAPI
+## Deployment
 
-### Frontend
-- React
-- Tailwind CSS
+- Netlify
+- Render
+- GitHub
 
-## 📁 Project Structure
+---
+
+# 📊 Model Performance
+
+| Metric | Score |
+|---------|------:|
+| Accuracy | **92.36%** |
+| Precision | **89.45%** |
+| Recall | **96.04%** |
+| F1 Score | **92.63%** |
+
+---
+
+# 📂 Project Structure
 
 ```
-Deepfake-Text-Detection-DBA-Net/
+DBA-Net
 │
-├── backend/
-├── frontend/
-├── dataset/
-├── model/
-├── notebook/
-├── outputs/
-├── screenshots/
+├── backend
+│   ├── app.py
+│   ├── predict.py
+│   ├── model.py
+│   ├── preprocess.py
+│   └── config.py
 │
-├── README.md
+├── frontend
+│   ├── src
+│   ├── public
+│   └── package.json
+│
+├── model
+│   ├── dba_net_best.pt
+│   ├── vocabulary.pkl
+│   └── embedding_matrix.npy
+│
 ├── requirements.txt
-├── LICENSE
-└── .gitignore
+└── README.md
 ```
 
-## 🚧 Project Status
+---
 
-Currently under active development.
+# 🚀 Installation
 
-### Completed
+## Clone Repository
 
-- [x] Project Structure
-- [x] GitHub Repository
-- [x] Configuration Module
-- [x] Preprocessing Module (In Progress)
+```bash
+git clone https://github.com/mdraffea/Deepfake-Text-Detection-DBA-Net.git
+```
 
-### Upcoming
+```
+cd Deepfake-Text-Detection-DBA-Net
+```
 
-- [ ] DBA-Net Model
-- [ ] Training Pipeline
-- [ ] FastAPI Backend
-- [ ] React Frontend
-- [ ] Deployment
-- [ ] Live Demo
+---
 
-## 👨‍💻 Author
+## Backend
+
+```
+pip install -r requirements.txt
+```
+
+Run FastAPI
+
+```
+uvicorn backend.app:app --reload
+```
+
+---
+
+## Frontend
+
+```
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+# REST API
+
+## Health Check
+
+```
+GET /health
+```
+
+Response
+
+```json
+{
+  "status":"healthy"
+}
+```
+
+---
+
+## Prediction
+
+```
+POST /predict
+```
+
+Request
+
+```json
+{
+    "text":"Artificial Intelligence is transforming the world."
+}
+```
+
+Response
+
+```json
+{
+    "prediction":"Human Written",
+    "confidence":93.21
+}
+```
+
+---
+
+# 📸 Screenshots
+
+Coming Soon
+
+- Home
+- Prediction
+- Architecture
+- Performance
+
+---
+
+# 👨‍💻 Developer
 
 **Mohd Raffea Chisti**
 
@@ -86,8 +263,16 @@ B.Tech Computer Science & Engineering
 
 Galgotias University
 
-GitHub: https://github.com/mdraffea
+GitHub
+
+https://github.com/mdraffea
+
+LinkedIn
+
+(Add your LinkedIn URL)
 
 ---
 
-⭐ If you like this project, consider giving it a star.
+# ⭐ If you like this project
+
+Give it a ⭐ on GitHub.
