@@ -5,7 +5,6 @@ import numpy as np
 import pandas as pd
 
 from collections import Counter
-from gensim.models import FastText
 
 from sklearn.model_selection import train_test_split
 
@@ -102,22 +101,17 @@ def split_dataset(df):
 
 def train_fasttext(token_lists):
 
+    from gensim.models import FastText
+
     print("Training FastText...")
 
     model = FastText(
-
         sentences=token_lists,
-
         vector_size=EMBEDDING_DIM,
-
         window=FASTTEXT_WINDOW,
-
         min_count=FASTTEXT_MIN_COUNT,
-
         epochs=FASTTEXT_EPOCHS,
-
-        sg=1
-
+        sg=1,
     )
 
     print("FastText Training Complete")
