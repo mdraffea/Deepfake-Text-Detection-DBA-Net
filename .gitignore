@@ -5,12 +5,6 @@ venv/
 __pycache__/
 *.py[cod]
 
-# Model files
-*.pt
-*.pth
-*.npy
-*.pkl
-
 # Environment
 .env
 
@@ -22,12 +16,3 @@ __pycache__/
 
 # Dataset
 dataset/*.csv
-
-# Trained models
-model/*.pt
-model/*.npy
-model/*.pkl
-
-# Python cache
-__pycache__/
-*.pyc
